@@ -1,4 +1,10 @@
 Ribbit::Application.routes.draw do
+  get "sessions/new"
+
+  get "sessions/create"
+
+  get "sessions/destroy"
+
   resources :users
 
 
@@ -52,6 +58,14 @@ Ribbit::Application.routes.draw do
   # You can have the root of your site routed with "root"
   # just remember to delete public/index.html.
   root :to => 'users#new'
+
+  get "sessions/new"
+
+  get "sessions/create"
+
+  get "sessions/destroy"
+
+  post "sessions/create"
 
   # See how all your routes lay out with "rake routes"
 
