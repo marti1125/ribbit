@@ -4,6 +4,7 @@ class User < ActiveRecord::Base
   before_save :create_avatar_url
 
   attr_accessible :avatar_url, :email, :name, :password, :password_confirmation, :username
+  has_many :ribits
 
   has_secure_password
 
@@ -19,6 +20,6 @@ class User < ActiveRecord::Base
 
   def create_avatar_url
   	self.avatar_url = "http://www.gravatar.com/avatar/#{Digest::MD5.hexdigest(self.email)}?s=50"
-  end
+  end  
 
 end
