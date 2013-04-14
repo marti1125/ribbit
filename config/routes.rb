@@ -1,5 +1,8 @@
 Ribbit::Application.routes.draw do
   
+  resources :relationships
+
+
   resources :ribits
 
 
