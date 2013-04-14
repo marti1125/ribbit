@@ -3,6 +3,10 @@ class UsersController < ApplicationController
 	def show
 	    @user = User.find(params[:id])
 	    @ribit = Ribit.new
+	    @relationship = Relationship.where(
+	    	follower_id: current_user.id,
+	    	followed_id: @user.id
+	    ).first_or_initlialize if current_user
 	 end
 
 	def new
@@ -18,6 +22,12 @@ class UsersController < ApplicationController
 		else
 			render 'new'
 		end
+	end
+
+	def destroy
+		@relationship = Relationship.find(params[:id])
+		@relationship.destroy
+		redirect_to user_path params[:id]
 	end
 
 end
