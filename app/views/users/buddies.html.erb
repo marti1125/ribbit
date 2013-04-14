@@ -11,7 +11,7 @@
 <% end %>
 <div class="panel left">
     <h1>Buddies' Ribbits</h1>
-    <% @ribits.each do |ribbit| %>
+    <% @ribits.each do |ribit| %>
         <div class="ribbitWrapper">
             <a href="<%= user_path ribit.user %>">
             <img class="avatar" src="<%= ribit.user.avatar_url %>">
